@@ -1,7 +1,7 @@
 {
-  "name": "sam-brittney-wedding",
+  "name": "sam-brittany-wedding",
   "version": "1.0.0",
-  "description": "Video Server for sam and brittney",
+  "description": "Video Server for sam and brittany",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
