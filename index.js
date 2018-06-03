@@ -48,6 +48,6 @@ app.use(function(err, req, res, next){
     res.send("500 Internal Server Error");
 });
 
-app.listen(80, function() {
-    console.log('Server Started http://localhost:80 Lets start a wedding :)');
+app.listen(8080, function() {
+    console.log('Server Started http://localhost:8080 Lets start a wedding :)');
 });
