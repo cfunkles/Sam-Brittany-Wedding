@@ -27,6 +27,13 @@ node index.js
 node websocket-relay.js
 ```
 
+# Initiate a live stream
+- In terminal at directory of source of audio file run this
+```
+ffmpeg -re -i shape.mp3 -r 10 -vcodec mpeg3 -f mpegts http://localhost:8081/password
+```
+
+
 ## JSMpeg – MPEG1 Video & MP2 Audio Decoder in JavaScript
 
 JSMpeg is a Video Player written in JavaScript. It consists of an MPEG-TS demuxer, MPEG1 video & MP2 audio decoders, WebGL & Canvas2D renderers and WebAudio sound output. JSMpeg can load static videos via Ajax and allows low latency streaming (~50ms) via WebSockets.
