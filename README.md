@@ -14,7 +14,13 @@ https://github.com/cfunkles/Sam-Brittany-Wedding.git
 cd Sam-Brittany-Wedding
 ```
 
-3. Run Node server
+3. Install Node Packages
+
+```
+npm install
+```
+
+4. Run Node server
 
 ```
 node index.js
