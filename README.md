@@ -24,7 +24,7 @@ node index.js
 - in new terminal tab cd into the wedding directory and start web socket server
 
 ```
-node websocket-relay.js
+node websocket-relay.js password
 ```
 
 # Initiate a live stream
