@@ -8,8 +8,26 @@
 </head>
 <body>
 	<h1>Sam and Brittany's Wedding Site</h1>
-	<audio controls>
-		<source src="/audio" type="audio/mpeg">
-	</audio>
+	<canvas id="video-canvas"></canvas>
+	<script type="text/javascript" src="jsmpeg.min.js"></script>
+	<script type="text/javascript">
+		var canvas = document.getElementById('video-canvas');
+		var url = 'ws://10.0.0.186:8082/password';
+		var player = new JSMpeg.Player(url, {canvas: canvas,poster:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwnnHU54UwHf4NgXRS-NH3qswJBmf5qFsMr2ciqtRg5BqobHRu', maxAudioLag:2000});
+		// Add Code to get past browsers blocking the audio stream
+		const audioCtx = new AudioContext();
+
+		canvas.onclick = function() {
+			if(audioCtx.state === 'running') {
+				audioCtx.suspend().then(function() {
+				canvas.textContent = 'Resume context';
+				});
+			} else if(audioCtx.state === 'suspended') {
+				audioCtx.resume().then(function() {
+				canvas.textContent = 'Suspend context';
+				});  
+			}
+		}
+	</script>
 </body>
 </html>
