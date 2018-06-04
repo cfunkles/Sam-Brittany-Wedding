@@ -8,17 +8,26 @@
 </head>
 <body>
 	<h1>Sam and Brittany's Wedding Site</h1>
-	<canvas id="video-canvas"></canvas>
+	<!-- <canvas id="video-canvas">
+		<p>
+			Please use a browser that supports the Canvas Element, like
+			<a href="http://www.google.com/chrome">Chrome</a>,
+			<a href="http://www.mozilla.com/firefox/">Firefox</a>,
+			<a href="http://www.apple.com/safari/">Safari</a> or Internet Explorer 10
+		</p>
+	</canvas> -->
 	<button id="enterStream">Wedding Ceremony Music Stream</button>
 	<script type="text/javascript" src="jsmpeg.min.js"></script>
 	<script type="text/javascript">
 		const startStreamBtn = document.getElementById('enterStream');
-		startStreamBtn .onclick = function() {
+		startStreamBtn.onclick = function() {
 			const canvas = document.getElementById('video-canvas');
 			const url = 'ws://10.0.0.186:8082/password';
-			const player = new JSMpeg.Player(url, {canvas: canvas,poster:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwnnHU54UwHf4NgXRS-NH3qswJBmf5qFsMr2ciqtRg5BqobHRu', maxAudioLag:2000});
+			const player = new JSMpeg.Player(url, {poster:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwnnHU54UwHf4NgXRS-NH3qswJBmf5qFsMr2ciqtRg5BqobHRu', maxAudioLag:2000, disableGl:true, audio:true});
+			player.play();
 			startStreamBtn.parentNode.removeChild(startStreamBtn);
 		}
+
 	</script>
 </body>
 </html>
