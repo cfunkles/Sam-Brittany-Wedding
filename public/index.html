@@ -16,17 +16,23 @@
 			<a href="http://www.apple.com/safari/">Safari</a> or Internet Explorer 10
 		</p>
 	</canvas> -->
-	<button id="enterStream">Wedding Ceremony Music Stream</button>
 	<script type="text/javascript" src="jsmpeg.min.js"></script>
 	<script type="text/javascript">
-		const startStreamBtn = document.getElementById('enterStream');
-		startStreamBtn.onclick = function() {
-			const canvas = document.getElementById('video-canvas');
-			const url = 'ws://10.0.0.186:8082/password';
-			const player = new JSMpeg.Player(url, {poster:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwnnHU54UwHf4NgXRS-NH3qswJBmf5qFsMr2ciqtRg5BqobHRu', maxAudioLag:2000, disableGl:true, audio:true});
-			player.play();
-			startStreamBtn.parentNode.removeChild(startStreamBtn);
+		const url = 'ws://10.0.0.186:8082/password';
+		var player = new JSMpeg.Player(url, {maxAudioLag:2000, disableGl:true, audio:true});
+		function onUnlocked () {
+			// console.log('unlock video audio: ' + url)
+			player.volume = 1
+			document.removeEventListener('touchstart', onTouchStart)
 		}
+		function onTouchStart () {
+			player.audioOut.unlock(onUnlocked)
+			document.removeEventListener('touchstart', onTouchStart)
+		}
+		// try to unlock immediately
+		player.audioOut.unlock(onUnlocked)
+		// try to unlock by touchstart event
+		document.addEventListener('touchstart', onTouchStart, false)
 
 	</script>
 </body>
