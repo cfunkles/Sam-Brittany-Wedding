@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>Sam and Brittany's Wedding Site</h1>
+	<button id="initiate">Touch Here to join wedding</button>
 	<!-- <canvas id="video-canvas">
 		<p>
 			Please use a browser that supports the Canvas Element, like
@@ -19,6 +20,7 @@
 	<!-- CODE from https://github.com/phoboslab/jsmpeg -->
 	<script type="text/javascript" src="jsmpeg.min.js"></script>
 	<script type="text/javascript">
+		const initiateButton = document.getElementById('initiate');
 		const url = 'ws://127.0.0.1:8082/password';
 		var player = new JSMpeg.Player(url, {maxAuidoLag:1, disableGl:true, audio:true, audioBufferSize:400*1024});
 		function onUnlocked () {
