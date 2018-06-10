@@ -16,10 +16,11 @@
 			<a href="http://www.apple.com/safari/">Safari</a> or Internet Explorer 10
 		</p>
 	</canvas> -->
+	<!-- CODE from https://github.com/phoboslab/jsmpeg -->
 	<script type="text/javascript" src="jsmpeg.min.js"></script>
 	<script type="text/javascript">
-		const url = 'ws://10.0.0.186:8082/password';
-		var player = new JSMpeg.Player(url, {maxAudioLag:2000, disableGl:true, audio:true});
+		const url = 'ws://127.0.0.1:8082/password';
+		var player = new JSMpeg.Player(url, {maxAudioLag:20000, disableGl:true, audio:true, audioBufferSize:512*1024});
 		function onUnlocked () {
 			// console.log('unlock video audio: ' + url)
 			player.volume = 1
