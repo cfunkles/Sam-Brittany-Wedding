@@ -1,5 +1,5 @@
 // Streaming CODE and onUnlock CODE from https://github.com/phoboslab/jsmpeg
-// noSleep CODE from NoSleep.js
+// noSleep CODE from NoSleep.js https://github.com/richtr/NoSleep.js?utm_source=recordnotfound.com
 
 let noSleep = new NoSleep();
 
