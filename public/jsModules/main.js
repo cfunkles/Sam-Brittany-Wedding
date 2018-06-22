@@ -8,9 +8,8 @@ initiateButton.onclick = function() {
     initiateButton.style.display = "none";
     let afterTouchElem = document.getElementsByClassName("afterTouch");
     let paragraphElement = document.createElement('p');
-    paragraphElement.textContent = 'Thanks for Joining Our Wedding';
+    paragraphElement.textContent = 'YOU HAVE NOW JOINED THE WEDDING STREAM';
     afterTouchElem[0].innerHTML = paragraphElement.innerHTML;
-    // document.body.innerHTML += "<p>Thanks for Joining Our Wedding</p>";
 };
 //  TODO make this agnostic to the machine's configured IP
 const url = 'ws://10.0.186:8082/password';
