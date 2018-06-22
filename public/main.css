@@ -1,3 +1,25 @@
 body {
-    background-color:teal;
+    background-color:lavender;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.title {
+    text-align: center;
+}
+
+.touchArea {
+    text-align: center;
+    font-size: 20px;
+}
+
+.touchArea button {
+    padding: 20px;
+    background-color: aqua;
+    color: lavender;
+    cursor: pointer;
+    font-style: inherit;
+}
+
+.touchArea button:hover {
+    background-color: lightcyan;
 }
