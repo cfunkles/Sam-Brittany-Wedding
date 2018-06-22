@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./main.css">
+	<link href="https://fonts.googleapis.com/css?family=Cabin|Lobster" rel="stylesheet">
+	<title>Sam and Brittany Wedding</title>
+	
+</head>
+<body>
+	<div class="background">
+		<div class="allTheShit">
+			<div class="title">
+				<h1>Chuck's Wedding Initiator Page</h1>
+			</div>
+			<div class="touchArea">
+				<button id="initiateWalkDown">Start Shape Song</button>
+			</div>
+		</div>
+    </div>
+    <script>
+        const shapeButton = document.getElementById('initiateWalkDown');
+        shapeButton.addEventListener('click',playShape);
+        function playShape() {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    alert(xmlHttp.responseText);
+                    console.log(xmlHttp.responseText)
+                }
+            }
+            xmlHttp.open("GET", 'http://localhost:8080/shape', true); // true for asynchronous 
+            xmlHttp.send(null);
+        }
+    </script>
+</body>
+</html>

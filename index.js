@@ -1,4 +1,5 @@
-var fs = require('fs');
+// var fs = require('fs');
+let { exec } = require('child_process');
 var express = require('express');
 var app = express();
 
@@ -33,6 +34,19 @@ var app = express();
 //       fs.createReadStream(path).pipe(res)
 //     }
 // });
+
+app.get('/shape', function(req, res) {
+    let cmd = 'ffmpeg -re -i ./public/audio/shape.mp3 -r 10 -vcodec mpeg3 -f mpegts http://localhost:8081/password';
+    exec(cmd, (err, stdout, stderr) => {
+        if (err) {
+            console.log(err);
+        } else {
+            // TODO show the std out when song is streaming
+            // console.log({ stdout, stderr });
+        }
+    });
+    res.send('Playing Song');
+});
 
 app.use(express.static('public'));
 
