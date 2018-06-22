@@ -3,23 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="./main.css">
+	<link href="https://fonts.googleapis.com/css?family=Cabin|Lobster" rel="stylesheet">
 	<title>Sam and Brittany Wedding</title>
 	
 </head>
 <body>
-	<div class="title">
-		<h1>Sam and Brittany's Wedding Site</h1>
-	</div>
-	<div class="instructions">
-		<h1>Directions for hearing Music</h1>
-		<p>Make sure phone is off of silent</p>
-		<p>Once wedding music stream is initiated please click the button below to connect</p>
-		<p>Once you are connected please note that your phone's auto lock will be turned off and could drain your battery if you connect too early</p>
-		<p>If you lock your phone or close out this window, you will need to select the Touch here button to hear the music again</p>
-	</div>
-	<div class="touchArea">
-		<button id="initiate">Touch Here to join wedding</button>
-		<span class="afterTouch"></span>
+	<div class="background">
+		<div class="allTheShit">
+			<div class="title">
+				<h1>Sam and Brittany's Wedding Music</h1>
+			</div>
+			<div class="instructions">
+				<h3>Thank you for joining us for our wedding. Below are the directions to hear our wedding music.</h3>
+				<ul>
+					<li><p>1) Please make sure phone is not on silent and the volume is up</p></li>
+					<li>
+						<p>2) Click the button below to join the music stream.
+						<br/> The music will begin once the ceremony begins.
+						<br/> Your phone will stay on this screen and 
+						<br/> will not go into sleep mode once you click the button below.
+						<br/> If you phone does lock or you leave this window, <br/> you will need to click the button below again to join.</p>
+					</li>
+					<li><p>3) Please wear your earbuds/headphones during the ceremony and enjoy!</p></li>
+				</ul>
+				<p>Thank you! </p>
+				<p>Love Sam and Britt</p>
+			</div>
+			<div class="touchArea">
+				<button id="initiate">join wedding music</button>
+				<span class="afterTouch"></span>
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript" src="./jsModules/jsmpeg.min.js"></script>
 	<script type="text/javascript" src="./jsModules/NoSleep.js"></script>
