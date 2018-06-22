@@ -1,3 +1,6 @@
+// Streaming CODE and onUnlock CODE from https://github.com/phoboslab/jsmpeg
+// noSleep CODE from NoSleep.js
+
 let noSleep = new NoSleep();
 
 const initiateButton = document.getElementById('initiate');
