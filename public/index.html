@@ -18,14 +18,36 @@
 		</p>
 	</canvas> -->
 	<!-- Streaming CODE and onUnlock CODE from https://github.com/phoboslab/jsmpeg -->
-	<script type="text/javascript" src="jsmpeg.min.js"></script>
+  <script type="text/javascript" src="jsmpeg.min.js"></script>
+  <script type="text/javascript" src="NoSleep.js"></script>
 	<script type="text/javascript">
+
+		var noSleep = new NoSleep();
+
+		var wakeLockEnabled = false;
+		var toggleEl = document.querySelector("#initiate");
+		toggleEl.addEventListener('click', function() {
+		if (!wakeLockEnabled) {
+			noSleep.enable(); // keep the screen on!
+			wakeLockEnabled = true;
+			toggleEl.value = "Wake Lock is enabled";
+			document.body.style.backgroundColor = "green";
+		} else {
+			noSleep.disable(); // let the screen turn off.
+			wakeLockEnabled = false;
+			toggleEl.value = "Wake Lock is disabled";
+			document.body.style.backgroundColor = "";
+		}
+		}, false);
+
 		const initiateButton = document.getElementById('initiate');
 		initiateButton.onclick = function() {
 			initiateButton.style.display = "none";
+			document.body.innerHTML += "<p>Thanks for Joining Our Wedding</p>"
 		};
 		const url = 'ws://127.0.0.1:8082/password';
 		var player = new JSMpeg.Player(url, {maxAuidoLag:1, disableGl:true, audio:true, audioBufferSize:400*1024});
+
 		function onUnlocked () {
 			// console.log('unlock video audio: ' + url)
 			player.volume = 1
@@ -40,6 +62,6 @@
 		// try to unlock by touchstart event
 		document.addEventListener('touchstart', onTouchStart, false)
 
-	</script>
+  </script>
 </body>
 </html>
