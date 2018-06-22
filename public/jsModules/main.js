@@ -18,16 +18,16 @@ var player = new JSMpeg.Player(url, {maxAuidoLag:1, disableGl:true, audio:true, 
 
 function onUnlocked () {
     // console.log('unlock video audio: ' + url)
-    player.volume = 1
-    document.removeEventListener('touchstart', onTouchStart)
+    player.volume = 1;
+    document.removeEventListener('touchstart', onTouchStart);
 }
 function onTouchStart () {
     noSleep.enable(); // keep the screen on!
-    player.audioOut.unlock(onUnlocked)
-    document.removeEventListener('touchstart', onTouchStart)
+    player.audioOut.unlock(onUnlocked);
+    document.removeEventListener('touchstart', onTouchStart);
 }
 // try to unlock immediately
 noSleep.enable(); // keep the screen on!
-player.audioOut.unlock(onUnlocked)
+player.audioOut.unlock(onUnlocked);
 // try to unlock by touchstart event
-document.addEventListener('touchstart', onTouchStart, false)
+document.addEventListener('touchstart', onTouchStart, false);
