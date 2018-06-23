@@ -35,8 +35,9 @@ var app = express();
 //     }
 // });
 
-app.get('/shape', function(req, res) {
-    let cmd = 'ffmpeg -re -i ./public/audio/shape.mp3 -r 10 -vcodec mpeg3 -f mpegts http://localhost:8081/password';
+app.get('/streamSong/:song', function(req, res) {
+    let song = req.params.song;
+    let cmd = `ffmpeg -re -i ./public/audio/${song}.mp3 -r 10 -vcodec mpeg3 -f mpegts http://localhost:8081/password`;
     exec(cmd, (err, stdout, stderr) => {
         if (err) {
             console.log(err);
