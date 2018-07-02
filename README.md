@@ -32,8 +32,11 @@ node index.js
 ```
 node websocket-relay.js password
 ```
+# Initiate a Live Stream
+- In web browser go to http://<ip address of host>:8080/chuck.html
+- Select Buttons to play desired song
 
-# Initiate a live stream
+# Old- Initiate a live stream (Not Needed anymore)
 - In terminal at directory of source of audio file run this
 ```
 ffmpeg -re -i shape.mp3 -r 10 -vcodec mpeg3 -f mpegts http://localhost:8081/password
