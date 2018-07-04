@@ -58,3 +58,8 @@ ul li {
     background-color: lavender;
     color: indigo;
 }
+
+.killButton button {
+    margin-top: 12em;
+    background-color: #ee5f1f;
+}
