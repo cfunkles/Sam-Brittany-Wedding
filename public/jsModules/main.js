@@ -14,7 +14,7 @@ initiateButton.onclick = function() {
 const ip = location.hostname;
 const url = `ws://${ip}:8082/password`;
 console.log(url);
-var player = new JSMpeg.Player(url, {maxAuidoLag:1, disableGl:true, audio:true,video:false, audioBufferSize:512*1024});
+var player = new JSMpeg.Player(url, {throttled: false, pauseWhenHidden: false, maxAuidoLag:1, audio:true, video:false, audioBufferSize:256*1024});
 
 function onUnlocked () {
     // console.log('unlock video audio: ' + url)
