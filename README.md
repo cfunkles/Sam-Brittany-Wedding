@@ -33,7 +33,7 @@ node index.js
 node websocket-relay.js password
 ```
 # Initiate a Live Stream
-- In web browser go to http://<ip address of host>:8080/chuck.html
+- In web browser go to http://(Host Ip Address):8080/chuck.html
 - Select Buttons to play desired song
 
 # Old- Initiate a live stream (Not Needed anymore)
