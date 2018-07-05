@@ -4,6 +4,47 @@ let process;
 var express = require('express');
 var app = express();
 
+app.get('/streamSong/:song', function(req, res) {
+    let song = req.params.song;
+    if (song === "killStream") {
+        if (process) {
+            process.kill('SIGINT');
+            process = null;
+            console.log('Killing Stream');
+            return res.send('Stream Killed');
+        }
+        console.log('No Stream initiated');
+        return res.send('Nothing to Kill');
+    }
+    if (process) {
+        process.kill('SIGINT');
+        console.log('Stopping stream, Starting new stream');
+    }
+    let cmd = 'ffmpeg';
+    let args = [
+        '-re',
+        '-i', `./public/audio/${song}.mp3`,
+        '-f', 'mpegts',
+        'http://localhost:8081/password'
+    ];
+
+    // Run the child process to play the song
+    process = spawn(cmd, args);
+    // Log the out put
+    process.stdout.on('data',(data) => {
+        console.log(data);
+    });
+    // log the error
+    process.stderr.on('data', (data) => {
+        console.log(data);
+    });
+    // Log when finished
+    process.on('close', () => {
+        console.log('finished');
+    });
+    res.send('Playing Song');
+});
+
 // Path for using an html audio tag
 // app.get('/audio', function(req, res) {
 //     const path = 'public/Muzaktica.mp3'
@@ -35,49 +76,6 @@ var app = express();
 //       fs.createReadStream(path).pipe(res)
 //     }
 // });
-
-app.get('/streamSong/:song', function(req, res) {
-    let song = req.params.song;
-    if (song === "killStream") {
-        if (process) {
-            process.kill('SIGINT');
-            process = null;
-            console.log('Killing Stream');
-            return res.send('Stream Killed');
-        }
-        console.log('No Stream initiated');
-        return res.send('Nothing to Kill');
-    }
-    if (process) {
-        process.kill('SIGINT');
-        console.log('Stopping stream, Starting new stream');
-    }
-    let cmd = 'ffmpeg';
-    let args = [
-        '-re',
-        '-i', `./public/audio/${song}.mp3`,
-        '-r', '10',
-        '-vcodec', 'mpeg3',
-        '-f', 'mpegts',
-        'http://localhost:8081/password'
-    ];
-
-    // Run the child process to play the song
-    process = spawn(cmd, args);
-    // Log the out put
-    process.stdout.on('data',(data) => {
-        console.log(data);
-    });
-    // log the error
-    process.stderr.on('data', (data) => {
-        console.log(data);
-    });
-    // Log when finished
-    process.on('close', () => {
-        console.log('finished');
-    });
-    res.send('Playing Song');
-});
 
 app.use(express.static('public'));
 
