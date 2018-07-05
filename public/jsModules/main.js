@@ -13,7 +13,7 @@ initiateButton.onclick = function() {
 };
 //  TODO make this agnostic to the machine's configured IP
 const url = 'ws://10.0.186:8082/password';
-var player = new JSMpeg.Player(url, {maxAuidoLag:1, disableGl:true, audio:true, audioBufferSize:400*1024});
+var player = new JSMpeg.Player(url, {maxAuidoLag:1, disableGl:true, audio:true,video:false, audioBufferSize:512*128});
 
 function onUnlocked () {
     // console.log('unlock video audio: ' + url)
