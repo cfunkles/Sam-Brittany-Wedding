@@ -12,8 +12,7 @@ Array.from(songButtons).forEach(element => {
                 console.log(xmlHttp.responseText);
             }
         };
-        // Update the IP based on device running accessing this file
-        xmlHttp.open("GET", 'http://10.0.0.186:8080/streamSong/' + songName, true); // true for asynchronous 
+        xmlHttp.open("GET", '/streamSong/' + songName, true); // true for asynchronous 
         xmlHttp.send(null);
     }
 });

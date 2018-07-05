@@ -11,8 +11,9 @@ initiateButton.onclick = function() {
     paragraphElement.textContent = 'YOU HAVE NOW JOINED THE WEDDING STREAM';
     afterTouchElem[0].innerHTML = paragraphElement.innerHTML;
 };
-//  TODO make this agnostic to the machine's configured IP
-const url = 'ws://10.0.186:8082/password';
+const ip = location.hostname;
+const url = `ws://${ip}:8082/password`;
+console.log(url);
 var player = new JSMpeg.Player(url, {maxAuidoLag:1, disableGl:true, audio:true,video:false, audioBufferSize:512*128});
 
 function onUnlocked () {
